@@ -3,23 +3,23 @@
 @{
     ViewBag.Title = "Index";
 }
-<div><b>Table Format Data Displaying in ForEach</b><br /></div>
+<div><b>Orders from Channel Engine API</b><br /></div>
 <table class="table table-bordered table-responsive table-hover">
     <tr>
-        <th>Employee Id </th>
-        <th>First Name </th>
-        <th>Last Name </th>
-        <th>Email</th>
-        <th>Salary</th>
-        <th>Company</th>
-        <th>Department</th>
+        <th>Order Id</th>
+        <th>Channel Name</th>
+        <th>Total with VAT</th>
+        <th>VAT</th>
+        <th>Currency</th>
+        <th>Phone</th>
+        <th>Mail</th>
+        <th>Order Date</th>
     </tr>
     @foreach (var d in Model)
     {
 <tr>
     <td>@d.Id</td>
     <td>@d.ChannelName</td>
-    <td>@d.ChannelOrderNo</td>
     <td>@d.TotalInclVat</td>
     <td>@d.TotalVat</td>
     <td>@d.CurrencyCode</td>
