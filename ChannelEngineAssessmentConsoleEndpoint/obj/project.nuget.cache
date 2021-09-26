@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "N3t5wY6G19JVNHg745YMmeLqEunsnkkWECaysnnbe3upOMY3CbaCLjxF7X4qCsU8VZ6Ls3pG2mKDMbUEOirDXA==",
+  "success": true,
+  "projectFilePath": "C:\\Imperium\\Projekty\\ChannelEngineAssessment\\ChannelEngineAssessmentConsoleEndpoint\\ChannelEngineAssessmentConsole.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jago\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.13\\microsoft.netcore.app.host.win-x64.3.1.13.nupkg.sha512"
+  ],
+  "logs": []
+}
