@@ -1,0 +1,6 @@
+
+.vs/ChannelEngineAssessment/v16/.suo
+*.dll
+ChannelEngineAssessment/bin/*
+ChannelEngineAssessment/obj/*
+ChannelEngineAssessmentLogic/obj/*
