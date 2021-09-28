@@ -35,6 +35,7 @@ namespace ChannelEngineAssessment
             services.AddScoped<IChannelEngineClient, ChannelEngineClient>();
             services.AddScoped<IChannelEngineRepository, ChannelEngineRepository>();
             services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IProductService, ProductService>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 

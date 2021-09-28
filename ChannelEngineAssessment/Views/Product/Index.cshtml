@@ -1,0 +1,25 @@
+﻿@model IEnumerable<ChannelEngineAssessment.Models.ProductViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div><b>Top sold products from Channel Engine API</b><br /></div>
+<table class="table table-bordered table-responsive table-hover">
+    <tr>
+        <th>Merchant number id</th>
+        <th>Name</th>
+        <th>EAN</th>
+        <th>Total sold</th>
+    </tr>
+    @foreach (var d in Model)
+    {
+<tr>
+    <td>@d.MerchantProductNo</td>
+    <td>@d.Name</td>
+    <td>@d.Ean</td>
+    <td>@d.TotalQuantitySold</td>
+
+</tr>
+
+    }
+</table>
