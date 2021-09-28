@@ -33,6 +33,9 @@ namespace ChannelEngineAssessmentConsole
                         case "2":
                             PrintTopSoldProducts();
                             break;
+                        case "3":
+                            UpdateProductStock();
+                            break;
                         default:
                             Console.WriteLine("Unknown command!");
                             break;
@@ -55,6 +58,7 @@ namespace ChannelEngineAssessmentConsole
             Console.WriteLine("If not, here are options (type number to choose):");
             Console.WriteLine("1. Get all orders in status in progress");
             Console.WriteLine("2. Get top 5 sold products");
+            Console.WriteLine("3. Set product stock to 25");
             Console.WriteLine("");
         }
 
@@ -98,6 +102,18 @@ namespace ChannelEngineAssessmentConsole
                 Console.WriteLine(builder.ToString());
                 count++;
             }
+        }
+
+        private void UpdateProductStock()
+        {
+            PrintTopSoldProducts();
+            Console.WriteLine("Please write Merchant number id of product you want to update");
+            var number = Console.ReadLine();
+            var result = _productService.UpdateProductStock(number).Result;
+            if(result)
+                Console.WriteLine("Successfully updated stock");
+            else
+                Console.WriteLine("Didn't work :(");
         }
     }
 }
