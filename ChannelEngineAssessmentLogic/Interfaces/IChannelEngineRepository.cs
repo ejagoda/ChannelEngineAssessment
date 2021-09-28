@@ -6,6 +6,7 @@ namespace ChannelEngineAssessmentLogic.Interfaces
 {
     public interface IChannelEngineRepository
     {
-        public Task<IEnumerable<Order>> GetOrdersInStatus(IEnumerable<OrderStatus> statuses);
+        public Task<CollectionOfOrders> GetOrdersInStatus(IEnumerable<OrderStatus> statuses);
+        public Task<IEnumerable<Product>> GetProductsByMerchantIds(IEnumerable<string> ids);
     }
 }

@@ -17,7 +17,7 @@ namespace ChannelEngineAssessmentLogic.Model
         public decimal? OriginalLineVat { get; set; }
         public decimal OriginalFeeFixed { get; set; }
         public string BundleProductMerchantProductNo { get; set; }
-        public List<OrderLineExtraData> ExtraData { get; set; }
+        public List<ExtraData> ExtraData { get; set; }
         public string ChannelProductNo { get; set; }
         public string MerchantProductNo { get; set; }
         public int Quantity { get; set; }

@@ -5,17 +5,17 @@ using System.Threading.Tasks;
 
 namespace ChannelEngineAssessmentLogic.Services
 {
-    public class OrderService : IOrderService
+    public class ProductService : IProductService
     {
         private readonly IChannelEngineRepository _channelEngineRepo;
-        public OrderService(IChannelEngineRepository channelEngine)
+        public ProductService(IChannelEngineRepository channelEngine)
         {
             _channelEngineRepo = channelEngine;
         }
 
-        public async Task<CollectionOfOrders> GetOrdersInProgress()
+        public async Task<IEnumerable<Product>> GetProductsByIds(IEnumerable<string> ids)
         {
-            return await _channelEngineRepo.GetOrdersInStatus(new List<OrderStatus> { OrderStatus.IN_PROGRESS });
+            return await _channelEngineRepo.GetProductsByMerchantIds(ids);
         }
     }
 }

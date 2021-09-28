@@ -15,13 +15,20 @@ namespace ChannelEngineAssessmentLogic.Repositories
             _client = client;
         }
         
-        public async Task<IEnumerable<Order>> GetOrdersInStatus(IEnumerable<OrderStatus> statuses)
+        public async Task<CollectionOfOrders> GetOrdersInStatus(IEnumerable<OrderStatus> statuses)
         {
             var urlBuilder = new StringBuilder("orders?");
             foreach (var status in statuses)
                 urlBuilder.Append("statuses=").Append(status.ToString()).Append("&");
+            return await _client.Get<CollectionOfOrders>(urlBuilder.ToString());
+        }
 
-            return await _client.Get<IEnumerable<Order>>(urlBuilder.ToString());
+        public async Task<IEnumerable<Product>> GetProductsByMerchantIds(IEnumerable<string> ids)
+        {
+            var urlBuilder = new StringBuilder("products?");
+            foreach (var id in ids)
+                urlBuilder.Append("merchantProductNoList=").Append(id).Append("&");
+            return await _client.Get<IEnumerable<Product>>(urlBuilder.ToString());
         }
     }
 }
