@@ -38,5 +38,12 @@ namespace ChannelEngineAssessment.Controllers
 
             return View(viewModel);
         }
+
+        public async Task<IActionResult> UpdateStock(string productId)
+        {
+            var response = await _productService.UpdateProductStock(productId);
+
+            return View(response);
+        }
     }
 }

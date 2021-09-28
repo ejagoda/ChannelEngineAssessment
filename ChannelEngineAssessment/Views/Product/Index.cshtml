@@ -10,6 +10,7 @@
         <th>Name</th>
         <th>EAN</th>
         <th>Total sold</th>
+        <th>Update stock</th>
     </tr>
     @foreach (var d in Model)
     {
@@ -18,6 +19,12 @@
     <td>@d.Name</td>
     <td>@d.Ean</td>
     <td>@d.TotalQuantitySold</td>
+    <td>
+        @Html.ActionLink(linkText: "Update stock to 25",
+                 actionName: "UpdateStock",
+                 routeValues: new { productId = d.MerchantProductNo },
+                 htmlAttributes: new { @class = "icon-1 info-tooltip", @Title = "Update stock to 25" })
+    </td>
 
 </tr>
 
