@@ -1,16 +1,19 @@
 ﻿using ChannelEngineAssessmentLogic.Interfaces;
 using System;
 using System.Text;
+using System.Linq;
 
 namespace ChannelEngineAssessmentConsole
 {
     class Application
     {
         private readonly IOrderService _orderService;
+        private readonly IProductService _productService;
 
-        public Application(IOrderService orderService)
+        public Application(IOrderService orderService, IProductService productService)
         {
             _orderService = orderService;
+            _productService = productService;
             Console.WriteLine("Hello in Channel Engine App.");
         }
 
@@ -26,6 +29,9 @@ namespace ChannelEngineAssessmentConsole
                     {
                         case "1":
                             PrintOrdersInProgress();
+                            break;
+                        case "2":
+                            PrintTopSoldProducts();
                             break;
                         default:
                             Console.WriteLine("Unknown command!");
@@ -48,6 +54,7 @@ namespace ChannelEngineAssessmentConsole
             Console.WriteLine("When you want to close application, please type 'e'.");
             Console.WriteLine("If not, here are options (type number to choose):");
             Console.WriteLine("1. Get all orders in status in progress");
+            Console.WriteLine("2. Get top 5 sold products");
             Console.WriteLine("");
         }
 
@@ -67,6 +74,27 @@ namespace ChannelEngineAssessmentConsole
                 builder.Append(" Order date: ").Append(order.OrderDate);
 
                 Console.WriteLine("Order " + count + ":");
+                Console.WriteLine(builder.ToString());
+                count++;
+            }
+        }
+
+        private void PrintTopSoldProducts()
+        {
+            var orders = _orderService.GetOrdersInProgress().Result;
+            var topProducts = orders.GetTopSoldProductsIds(5);
+            var products = _productService.GetProductsByIds(topProducts.Keys).Result;
+            var count = 1;
+
+            foreach (var topProduct in topProducts)
+            {
+                var product = products.First(p => string.Equals(p.MerchantProductNo, topProduct.Key));
+
+                var builder = new StringBuilder(count.ToString()).Append(". Merchant number id: ").Append(topProduct.Key);
+                builder.Append(" Name: ").Append(product.Name);
+                builder.Append(" EAN: ").Append(product.Ean);
+                builder.Append(" Total sold: ").Append(topProduct.Value);
+
                 Console.WriteLine(builder.ToString());
                 count++;
             }

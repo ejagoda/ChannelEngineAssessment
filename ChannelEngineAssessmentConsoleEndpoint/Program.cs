@@ -26,6 +26,7 @@ namespace ChannelEngineAssessmentConsole
                 .AddScoped<IChannelEngineClient, ChannelEngineClient>()
                 .AddScoped<IChannelEngineRepository, ChannelEngineRepository>()
                 .AddScoped<IOrderService, OrderService>()
+                .AddScoped<IProductService, ProductService>()
                 .AddSingleton<Application>()
                 .BuildServiceProvider();
         }
