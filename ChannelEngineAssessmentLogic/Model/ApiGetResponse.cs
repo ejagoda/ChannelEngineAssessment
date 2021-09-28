@@ -1,10 +1,9 @@
-﻿using RestSharp;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Net;
 
 namespace ChannelEngineAssessmentLogic.Model
 {
-    public class ApiResponse
+    public class ApiGetResponse
     {
         public int Count { get; set; }
         public int TotalCount { get; set; }

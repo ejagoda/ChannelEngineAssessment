@@ -17,5 +17,10 @@ namespace ChannelEngineAssessmentLogic.Services
         {
             return await _channelEngineRepo.GetProductsByMerchantIds(ids);
         }
+
+        public async Task<bool> UpdateProductStock(string id)
+        {
+            return await _channelEngineRepo.PatchProductStock(id, 25);
+        }
     }
 }

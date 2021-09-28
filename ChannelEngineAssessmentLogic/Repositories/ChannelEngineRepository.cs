@@ -30,5 +30,18 @@ namespace ChannelEngineAssessmentLogic.Repositories
                 urlBuilder.Append("merchantProductNoList=").Append(id).Append("&");
             return await _client.Get<IEnumerable<Product>>(urlBuilder.ToString());
         }
+
+        public async Task<bool> PatchProductStock(string id, int stock)
+        {
+            var url = "products/" + id;
+            var patchParams = new PatchRequest<int>
+            {
+                path = "Stock",
+                op = PatchOperation.replace,
+                value = stock
+            };
+
+            return await _client.Patch(url, patchParams);
+        }
     }
 }

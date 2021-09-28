@@ -8,5 +8,6 @@ namespace ChannelEngineAssessmentLogic.Interfaces
     {
         public Task<CollectionOfOrders> GetOrdersInStatus(IEnumerable<OrderStatus> statuses);
         public Task<IEnumerable<Product>> GetProductsByMerchantIds(IEnumerable<string> ids);
+        public Task<bool> PatchProductStock(string id, int stock);
     }
 }
